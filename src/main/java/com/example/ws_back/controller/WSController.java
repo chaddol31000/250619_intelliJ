@@ -50,10 +50,10 @@ public class WSController {
 
   }
 
-  @PreAuthorize("isAuthenticated()")
+  // @PreAuthorize("isAuthenticated()")
   @PostMapping("/api/message")
-  public ResponseEntity<Void> job3 (String receiver, String message, Principal principal) {
-    String sender = principal.getName();
+  public ResponseEntity<Void> job3 (String receiver, String message) {
+    String sender = "hana";
     if(sender.equals(receiver))
       return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
     // receiver 에게만 웹소켓 메시지를 전송
